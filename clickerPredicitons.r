@@ -1,5 +1,6 @@
 library(dplyr)
 
+#merge data
 gender <- `CSCI.T.Numbers.(1).xls...Sheet`
 names(grades)[2] <- "Weighted.Total"
 names(grades)[1] <- "TNum"
@@ -11,6 +12,7 @@ for (i in 3:13){
   
 total <- merge(gender, grades, by="TNum")
 
+#find bottom 80% of labs 1, 2, 3, 4. 
 attach(total)
 newTotal0 <- total[which(Lab1 <= 32), ] 
 newTotal1 <- total[which(Lab2 <= 32), ]
@@ -22,10 +24,11 @@ newTotal <- rbind(newTotal0, newTotal1, newTotal2, newTotal3)
 newTotal
 
 
-
+#clicker data with dates
 responseTotal <- merge(responses, questions, by="question_unique_id")
 responseTotal <- merge(responseTotal, dates, by="question_unique_id")
 
+#clicker answer changes
 noChangeCorrect <- 0
 noChangeTotal <-0
 for (x in 1:length(responseTotal$correct_answer)){
