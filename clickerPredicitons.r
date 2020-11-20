@@ -14,13 +14,13 @@ total <- merge(gender, grades, by="TNum")
 
 #find bottom 80% of labs 1, 2, 3, 4. 
 attach(total)
-newTotal0 <- total[which(Lab1 <= 32), ] 
-newTotal1 <- total[which(Lab2 <= 32), ]
-newTotal2 <- total[which(Lab3 <= 32), ]
+newTotal1 <- total[which(Lab1 <= 32), ] 
+newTotal2 <- total[which(Lab2 <= 32), ]
 newTotal3 <- total[which(Lab3 <= 32), ]
+newTotal4 <- total[which(Lab4 <= 32), ]
 detach(total)
 
-newTotal <- rbind(newTotal0, newTotal1, newTotal2, newTotal3)
+newTotal <- rbind(newTotal1, newTotal2, newTotal3, newTotal4)
 newTotal
 
 
